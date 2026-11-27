@@ -11,10 +11,18 @@ const port = Number(process.argv.find((a) => a.startsWith("--port="))?.split("="
 const types = { ".html": "text/html", ".css": "text/css", ".js": "text/javascript", ".json": "application/json" };
 
 createServer(async (req, res) => {
-  const path = req.url === "/" ? "index.html" : decodeURIComponent(req.url.split("?")[0]).replace(/^\//, "");
+  const rel = req.url === "/" ? "index.html" : decodeURIComponent(req.url.split("?")[0]).replace(/^\//, "");
+  const file = join(root, rel);
+  // Stay inside app/: a ".." in the URL must not escape the served root
+  // (before this, /..%2fmain.ts served files outside app/).
+  if (file !== root && !file.startsWith(root)) {
+    res.writeHead(403);
+    res.end("forbidden");
+    return;
+  }
   try {
-    const body = await readFile(join(root, path));
-    res.writeHead(200, { "content-type": types[extname(path)] ?? "application/octet-stream" });
+    const body = await readFile(file);
+    res.writeHead(200, { "content-type": types[extname(file)] ?? "application/octet-stream" });
     res.end(body);
   } catch {
     res.writeHead(404);
