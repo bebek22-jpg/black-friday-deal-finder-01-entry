@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bargain Friday — Real Black Friday deals, checked today</title>
+<meta name="description" content="28 real Black Friday deals from Amazon, Best Buy, Walmart, Target and more — each with its store link, sale price, usual price and check time.">
+<link rel="stylesheet" href="style.css">
+<script type="module" src="app.js"></script>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Black Friday · 27 Nov 2026</p>
+    <h1>Bargain Friday</h1>
+    <p class="lede">Real Black Friday deals, found and checked today — sale price, usual price, store link and check time on every one, plus an honest call on whether it is really a deal.</p>
+    <p id="checked-note">Prices checked on Black Friday, 27 Nov 2026.</p>
+  </div>
+</header>
+
+<div class="stats" role="group" aria-label="Board totals">
+  <div class="stat"><b id="stat-deals">–</b><span>Deals checked</span></div>
+  <div class="stat"><b id="stat-real">–</b><span>Real deals</span></div>
+  <div class="stat"><b id="stat-avg">–</b><span>Avg discount</span></div>
+  <div class="stat"><b id="stat-saved">–</b><span>Total savings</span></div>
+  <div class="stat"><b id="stat-stores">–</b><span>Stores</span></div>
+</div>
+
+<main class="wrap">
+  <div class="controls">
+    <label class="grow">Search
+      <input type="search" id="search" placeholder="Try “airpods”, “tv”, “dyson”… " autocomplete="off">
+    </label>
+    <label>Category
+      <select id="category">
+        <option>All categories</option>
+      </select>
+    </label>
+    <label>Store
+      <select id="store">
+        <option>All stores</option>
+      </select>
+    </label>
+    <label>Min discount
+      <select id="discount">
+        <option value="0">Any discount</option>
+        <option value="20">20% off or more</option>
+        <option value="30">30% off or more</option>
+        <option value="40">40% off or more</option>
+        <option value="50">50% off or more</option>
+      </select>
+    </label>
+    <label>Sort by
+      <select id="sort">
+        <option value="discount">Biggest discount</option>
+        <option value="saving">Biggest saving ($)</option>
+        <option value="priceAsc">Lowest price</option>
+        <option value="priceDesc">Highest price</option>
+        <option value="name">Name A–Z</option>
+      </select>
+    </label>
+    <label class="check"><input type="checkbox" id="real-only"> Real deals only</label>
+  </div>
+
+  <p id="result-count" aria-live="polite">Loading deals…</p>
+  <div id="deal-grid"></div>
+  <p id="empty-state" hidden>No deals match that search. Try clearing a filter — the board holds 28 checked deals.</p>
+
+  <section class="method">
+    <h2>How every price was checked</h2>
+    <p>Each deal on this board was found in a store's own Black Friday sale or a deals roundup that names the store, and its sale price and usual price were read from that source on Friday 27 November 2026 (Black Friday itself). The check time and the source sit on every card. A deal whose price could not be confirmed was left off the board.</p>
+    <p><strong>Real deal?</strong> <strong>REAL DEAL</strong> means a true low or a rare deep cut. <strong>STRONG DEAL</strong> is a big, honest saving. <strong>SOLID DEAL</strong> is worth it but not historic. <strong>ROUTINE SALE</strong> is a small cut — the Nintendo Switch 2 bundle, for example, is only 9% off, but it is the first $50 cut on a brand-new console, so it stays on the board with the honest label.</p>
+    <p>Discounts are computed from the two prices shown, so they always add up. Prices can move or sell out — the store link on each card is the place to confirm before you buy.</p>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Bargain Friday — an independent deal board built for the make.fun Black Friday deal finder bounty. Not affiliated with any store named here.</p>
+    <p>All 28 prices checked 27 Nov 2026, 07:00 UTC. Sources are named on every deal card.</p>
+  </div>
+</footer>
+</body>
+</html>
